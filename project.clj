@@ -6,7 +6,15 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                [ring/ring-core "1.12.2"]
                [ring/ring-jetty-adapter "1.12.2"]
-               [compojure "1.7.1"]]
+                 [ring/ring-json "0.5.1"] 
+                 [lynxeyes/dotenv "1.1.0"]
+               [compojure "1.7.1"] 
+                 [clj-http "3.12.3"]
+                 [cheshire "5.10.0"]
+                 [buddy/buddy-sign "3.4.1"]
+                 [buddy/buddy-core "1.10.1"] 
+                 [com.auth0/java-jwt "3.18.2"]
+                 [com.auth0/jwks-rsa "0.20.0"]]
   :main ^:skip-aot clojure-fedcm.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all

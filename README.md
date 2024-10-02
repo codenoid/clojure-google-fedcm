@@ -2,6 +2,11 @@
 
 FIXME: description
 
+## Requirements
+
+Please get google client oauth on cloud.google.com
+authorize http://localhost:4545 as javascript origin
+
 ## Installation
 
 Download from http://example.com/FIXME.

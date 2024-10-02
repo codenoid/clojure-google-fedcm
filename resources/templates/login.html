@@ -1,10 +1,29 @@
 <html>
+  <head>
+    <title>Login FEDCM</title>
+    <meta name="google-signin-client_id" content="{{GOOGLE_CLIENT_ID}}" />
+  </head>
   <body>
     <h1>Login</h1>
+    <div id="g_id_onload" data-client_id="{{GOOGLE_CLIENT_ID}}" data-callback="onSignIn"></div>
     <form method="POST" action="/login">
-      Username: <input type="text" name="username"><br>
-      Password: <input type="password" name="password"><br>
-      <input type="submit" value="Login">
+			<div class="g_id_signin" data-type="standard"></div>
     </form>
+
+    <script>
+      async function onSignIn(payload) {
+        const data = new URLSearchParams();
+        data.set("credential", payload.credential);
+        const resp = await (
+          await fetch('/login', {
+            method: 'POST',
+            body: data
+          })
+        ).json();
+
+        resp.success ? (window.location = '/') : alert(resp.message);
+      }
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
   </body>
 </html>
